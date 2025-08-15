@@ -1,0 +1,3 @@
+/Users/valentinlemaire/Documents/Documents - MacBook Air de Valentin/code/C++ projects/python-game-main/build/CMakeFiles/game_cpp.dir
+/Users/valentinlemaire/Documents/Documents - MacBook Air de Valentin/code/C++ projects/python-game-main/build/CMakeFiles/edit_cache.dir
+/Users/valentinlemaire/Documents/Documents - MacBook Air de Valentin/code/C++ projects/python-game-main/build/CMakeFiles/rebuild_cache.dir
