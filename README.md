@@ -1,83 +1,91 @@
-# Python Game - C++ Port
+# 2D Game
 
-This is a C++ port of the original Python game using Allegro 5 as the graphics library instead of Pygame.
+A simple 2D game built with C++ and Allegro 5, featuring procedurally generated maps and player movement.
+
+## Features
+
+- **Procedural Map Generation**: Uses Perlin noise to generate terrain maps
+- **Player Movement**: WASD controls for character movement
+- **Pause Menu**: ESC key to pause/unpause the game
+- **Map Display**: Visual representation of the generated terrain
 
 ## Prerequisites
 
-You need to have the following installed on your system:
+- **CMake** (version 3.10 or higher)
+- **Allegro 5** library
+- **C++17** compatible compiler
+- **Python** (for map generation)
 
-### macOS
+### Installing Allegro 5 on macOS
+
 ```bash
-# Install Allegro 5 using Homebrew
-brew install allegro5
-
-# Install CMake if not already installed
-brew install cmake
+brew install allegro
 ```
-
-### Ubuntu/Debian
-```bash
-# Install Allegro 5 development libraries
-sudo apt-get install liballegro5-dev liballegro5.2
-
-# Install CMake if not already installed
-sudo apt-get install cmake
-```
-
-### Windows
-- Download and install Allegro 5 from: https://github.com/liballeg/allegro5/releases
-- Install CMake from: https://cmake.org/download/
 
 ## Building the Project
 
-1. Create a build directory:
-```bash
-mkdir build
-cd build
-```
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd 2D-Game
+   ```
 
-2. Configure the project with CMake:
-```bash
-cmake ..
-```
+2. **Build the project**
+   ```bash
+   ./build.sh
+   ```
 
-3. Build the project:
-```bash
-make
-```
+   Or manually:
+   ```bash
+   mkdir build
+   cd build
+   cmake ..
+   make
+   ```
 
 ## Running the Game
 
 After building, run the game:
+
 ```bash
-./game_cpp
+./build/game_cpp
 ```
 
 ## Controls
 
-- **WASD**: Move the player (up, left, down, right)
-- **I/O**: Zoom in/out
-- **ESC**: Toggle pause menu
-- **Mouse**: Click menu options in pause menu
-- **Arrow Keys**: Navigate pause menu
-- **Enter**: Select menu option
+- **W/A/S/D**: Move player (up/left/down/right)
+- **ESC**: Pause/unpause game
+- **Close window**: Exit game
+
+## Map Generation
+
+Generate new maps using the Python script:
+
+```bash
+python map_generation.py
+```
+
+This creates new map files in the `maps/` directory.
 
 ## Project Structure
 
-- `main.cpp`: Main game loop and initialization
-- `displayed_map.h/cpp`: Map display and zoom functionality
-- `file_extraction.h/cpp`: File reading utilities
-- `menus.h/cpp`: Pause menu implementation
-- `moving.h/cpp`: Player movement logic
-- `player.h/cpp`: Player class and rendering
-- `CMakeLists.txt`: Build configuration
-- `maps/`: Map files (same as Python version)
+```
+├── main.cpp              # Main game loop
+├── player.cpp/h          # Player class and movement
+├── displayed_map.cpp/h   # Map rendering
+├── menus.cpp/h           # Pause menu system
+├── moving.cpp/h          # Movement logic
+├── file_extraction.cpp/h # File I/O utilities
+├── map_generation.py     # Procedural map generation
+├── build.sh              # Build script
+└── CMakeLists.txt        # CMake configuration
+```
 
-## Differences from Python Version
+## Clean Build
 
-1. **Graphics Library**: Uses Allegro 5 instead of Pygame
-2. **Event Handling**: Uses Allegro's event system
-3. **Memory Management**: Manual memory management for C++ objects
-4. **Build System**: Uses CMake for cross-platform building
+To start fresh, simply delete the `build/` folder and rebuild:
 
-The game logic and functionality remain the same as the original Python version. 
+```bash
+rm -rf build
+./build.sh
+```
